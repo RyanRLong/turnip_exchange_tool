@@ -2,17 +2,18 @@
 
 See:
 https://packaging.python.org/guides/distributing-packages-using-setuptools/
-https://github.com/pypa/sampleproject
+https://github.com/SaltyCatFish/turnip_exchange_tool
 """
 
-# Always prefer setuptools over distutils
-from setuptools import setup, find_packages
-from os import path
 # io.open is needed for projects that support Python 2.7
 # It ensures open() defaults to text mode with universal newlines,
 # and accepts an argument to specify the text encoding
 # Python 3 only projects can skip this import
 from io import open
+from os import path
+
+# Always prefer setuptools over distutils
+from setuptools import setup, find_packages
 
 here = path.abspath(path.dirname(__file__))
 
@@ -28,14 +29,14 @@ setup(
     # package, this name will be registered for you. It will determine how
     # users can install this project, e.g.:
     #
-    # $ pip install sampleproject
+    # $ pip install turnip_exchange_tool
     #
-    # And where it will live on PyPI: https://pypi.org/project/sampleproject/
+    # And where it will live on PyPI: https://pypi.org/project/turnip_exchange_tool/
     #
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='sampleproject',  # Required
+    name='turnip_exchange_tool',  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -43,12 +44,12 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.3.1',  # Required
+    version='0.0.1',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A sample Python project',  # Optional
+    description='A turnip_exchange_tool Python project',  # Optional
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -76,15 +77,15 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/pypa/sampleproject',  # Optional
+    url='https://github.com/SaltyCatFish/turnip_exchange_tool',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='The Python Packaging Authority',  # Optional
+    author='Ryan Long',  # Optional
 
     # This should be a valid email address corresponding to the author listed
     # above.
-    author_email='pypa-dev@googlegroups.com',  # Optional
+    author_email='ryanlong1004@gmail.com',  # Optional
 
     # Classifiers help users find your project by categorizing it.
     #
@@ -120,7 +121,7 @@ setup(
     # project page. What does your project relate to?
     #
     # Note that this is a string of words separated by whitespace, not a list.
-    keywords='sample setuptools development',  # Optional
+    keywords='turnip_exchange_tool',  # Optional
 
     # When your source code is in a subdirectory under the project root, e.g.
     # `src/`, it is necessary to specify the `package_dir` argument.
@@ -142,7 +143,7 @@ setup(
     # and refuse to install the project if the version does not match. If you
     # do not support Python 2, you can simplify this to '>=3.5' or similar, see
     # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
+    python_requires='>3.8, <4',
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -150,13 +151,13 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['peppercorn'],  # Optional
+    install_requires=['requests'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
     # syntax, for example:
     #
-    #   $ pip install sampleproject[dev]
+    #   $ pip install turnip_exchange_tool[dev]
     #
     # Similar to `install_requires` above, these must be valid existing
     # projects.
@@ -170,27 +171,27 @@ setup(
     #
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
-    package_data={  # Optional
-        'sample': ['package_data.dat'],
-    },
+    # package_data={  # Optional
+    #     'turnip_exchange_tool': ['package_data.dat'],
+    # },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=[('my_data', ['data/data_file'])],  # Optional
+    # data_files=[('my_data', ['data/data_file'])],  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # `pip` to create the appropriate form of executable for the target
     # platform.
     #
-    # For example, the following would provide a command called `sample` which
+    # For example, the following would provide a command called `turnip_exchange_tool` which
     # executes the function `main` from this package when invoked:
     entry_points={  # Optional
         'console_scripts': [
-            'sample=sample:main',
+            'turnip_exchange_tool=turnip_exchange_tool.main:main',
         ],
     },
 
@@ -204,9 +205,9 @@ setup(
     # maintainers, and where to support the project financially. The key is
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
+        'Bug Reports': 'https://github.com/SaltyCatFish/turnip_exchange_tool/issues',
         'Funding': 'https://donate.pypi.org',
         'Say Thanks!': 'http://saythanks.io/to/example',
-        'Source': 'https://github.com/pypa/sampleproject/',
+        'Source': 'https://github.com/SaltyCatFish/turnip_exchange_tool/',
     },
 )
