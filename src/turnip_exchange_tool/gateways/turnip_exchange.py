@@ -23,7 +23,7 @@ def request_data(file_path=None):
         response = _make_request()
     log.debug(f"Response Headers: {response.headers}")
     log.debug(f"Response Text: {response.text}")
-    return json.loads(brotli.decompress(response.text))
+    return json.loads(response.text)
 
 
 def _make_request():
