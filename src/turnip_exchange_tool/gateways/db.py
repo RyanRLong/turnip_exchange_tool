@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 CREATE_TABLE = """CREATE TABLE IF NOT EXISTS "islands_history" (
@@ -32,10 +33,13 @@ CREATE_TABLE = """CREATE TABLE IF NOT EXISTS "islands_history" (
 )
 """
 
+HERE = os.path.abspath(os.path.dirname(__file__))
+
 
 class Sqlite3Db:
+
     def __init__(self):
-        self.connection = sqlite3.connect("./db.sqlite3")
+        self.connection = sqlite3.connect(os.path.join(HERE, "../database/db.sqlite3"))
         self.cursor = None
 
     def __enter__(self):
