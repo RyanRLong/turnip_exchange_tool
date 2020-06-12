@@ -21,6 +21,8 @@ def request_data(file_path=None):
         response = load_response_from_file(file_path)
     else:
         response = _make_request()
+    log.debug(f"Response Headers: {response.headers}")
+    log.debug(f"Response Text: {response.text}")
     return json.loads(response.text)
 
 
