@@ -35,14 +35,17 @@ CREATE_TABLE = """CREATE TABLE IF NOT EXISTS "islands_history" (
 """
 
 HERE = os.path.abspath(os.path.dirname(__file__))
+DB_PATH = os.path.join(HERE, "../database")
+DB_FULL_PATH = os.path.join(DB_PATH, "db.sqlite3")
 log = logging.getLogger(__name__)
 
 
 class Sqlite3Db:
 
     def __init__(self):
-        log.debug(os.path.join(HERE, "../database/db.sqlite3"))
-        self.connection = sqlite3.connect(os.path.join(HERE, "../database/db.sqlite3"))
+        log.debug(f"database path is {DB_FULL_PATH}")
+        create_database_directory()
+        self.connection = sqlite3.connect(DB_FULL_PATH)
         self.cursor = None
 
     def __enter__(self):
@@ -66,3 +69,9 @@ class Sqlite3Db:
         c.executemany(
             f"INSERT OR IGNORE INTO {table} VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", formatted
         )
+
+
+def create_database_directory():
+    if not os.path.exists(DB_PATH):
+        log.debug(f"creating database path {DB_PATH}")
+        os.mkdir(DB_PATH)
